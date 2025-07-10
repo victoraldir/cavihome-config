@@ -3,7 +3,7 @@ mqtt:
   base_topic: zigbee2mqtt
   server: mqtt://core-mosquitto:1883
   user: addons
-  password: Vailoa3lis8le6ohqu3eyoquiaphaeghaet9zauv5baes4ohquom3iathee2Phu8
+  password: !secret mqtt.password
 serial:
   port: /dev/ttyUSB0
   adapter: zstack
@@ -45,21 +45,21 @@ frontend:
 homeassistant:
   enabled: true
 devices:
-  '0x08ddebfffeda01a6':
+  "0x08ddebfffeda01a6":
     friendly_name: luz
-  '0xd44867fffe185e5a':
+  "0xd44867fffe185e5a":
     friendly_name: sala
-  '0xa4c138a2f51b4289':
+  "0xa4c138a2f51b4289":
     friendly_name: USB router
-  '0xa4c138a6cdd038bd':
+  "0xa4c138a6cdd038bd":
     friendly_name: Sensor porta
-  '0xa4c138f0c0117cce':
+  "0xa4c138f0c0117cce":
     friendly_name: Siren
-  '0xfc4d6afffe8d61c4':
+  "0xfc4d6afffe8d61c4":
     friendly_name: IR remote
-  '0xa4c138e6605ccd08':
+  "0xa4c138e6605ccd08":
     friendly_name: quarto principal
-  '0xa4c138b74284fde8':
+  "0xa4c138b74284fde8":
     friendly_name: cozinha
 availability:
   enabled: true
