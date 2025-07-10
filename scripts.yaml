@@ -1,0 +1,44 @@
+ir_turn_on_off_tv:
+  sequence:
+    - action: mqtt.publish
+      metadata: {}
+      data:
+        evaluate_payload: false
+        qos: 0
+        topic: zigbee2mqtt/IR remote/set
+        payload: '{"ir_code_to_send":"B6QRpBE1ApAG4AED4AsB4BcfQAHAI8ABwA/AB8AB4AcPQAEHT7ekEaQRNQLAG0AH4AsBQBfAA+APAeAHH8APwAfAAeAHD0AB4EeH4A8BQHtAAUAH4AgDAgY1Ag=="}'
+  alias: IR turn on/off TV
+  description: ""
+samsung_turn_on_ac:
+  sequence:
+    - action: mqtt.publish
+      metadata: {}
+      data:
+        evaluate_payload: false
+        qos: 0
+        topic: zigbee2mqtt/IR remote/set
+        payload: '{"ir_code_to_send":"EecBzkXDCwgj5wHnARoCxAUaAkAH4AEDwAGAE+ADH+AHCwPEBecB4AMD4AUBARoC4C0DQAHgDzvgDwGALwHEBUADA+cBxAVABwUaAsMLwwtA5wPEBecB4AEBARoC4AsDA8QFGgKAFwHnAcALQAfgAQNAF4AD4AEBARoCgAPgBwHAF+ALB0ABQBdAAeADB8ALwAFAD+ADA+APAQkaAsMLwwsIIxoCQJ/gBQEDGgLnAeAFAYAjQBeAAwHEBcADAecBQAFABwHEBcATwAdAE4ADgAEFGgLnAecBwBMBxAVAD+AVA0AjQAOAJ4ABA8QF5wHgEwEPxAUaAsQFGgLEBRoCxAXnAQ=="}'
+  alias: Samsung turn on AC
+  description: ""
+samsung_turn_off_ac:
+  sequence:
+    - action: mqtt.publish
+      metadata: {}
+      data:
+        evaluate_payload: false
+        qos: 0
+        topic: zigbee2mqtt/IR remote/set
+        payload: '{"ir_code_to_send":"ERgCykXDCw8jGALpAekBxQXpAeAFAUAX4AEDA8UFGAKADwPpAcUFQANADwHpAUAH4AUDAekB4AkBAxgC6QHgCwFAF+ATA0ABQB9AAUAHQAPAAUAL4AsD4AEBQIsHxQUYAsMLwwtA5wPFBekB4AUBARgCgAPgAQHgASMFGALFBRgCwAdACwPFBekBgANACwMYAukB4AsD4CcB4AtD4BMTwAFAI0ABQAeAAwPDC8MLgOcBGALAE+AJB4ABBcUF6QHpAUAfQAFAB0ADgAFAG4ADARgC4AEDwBNABwMYAukB4AEDQA+AAwHpAeAXAUAjBcUFGALpAeABA+AHD+ADGwHpAeABAQfFBekBxQUYAg=="}'
+  alias: Samsung turn off AC
+  description: ""
+samsung_cool:
+  sequence:
+    - action: mqtt.publish
+      metadata: {}
+      data:
+        evaluate_payload: false
+        qos: 0
+        topic: zigbee2mqtt/IR remote/set
+        payload: '{"ir_code_to_send":"ERsCFEbMCxEj6QHpARsCwAUbAkAHgAPgCQHgAx/gAQsB6QFAC+AHAwHpAeAHA+AnAeAHP+APD+ADAeABI+ABjwHpAUADBcwLzAsRI4AXAekBwAPAAcAPgAdAL8ABwAsBwAVAFwUbAukBGwJABwXABekBwAVAB+AJAwHpAUADgAEBwAXgAQPgBQFAIwUbAsAFGwJAB0ADQAsJwAXpAekBGwLpAUABARsCgA/AAQEbAuAFAwHpAUAfC8AF6QHABekBwAUbAg=="}'
+  alias: Samsung set cool
+  description: ""

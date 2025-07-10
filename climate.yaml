@@ -1,0 +1,23 @@
+- platform: template
+  name: "Samsung AC"
+  unique_id: samsung_ac_virtual
+  modes:
+    - "off"
+    - "cool"
+    - "heat"
+  current_temperature_template: "{{ states('sensor.sala_temperature') | float }}"
+  temperature_template: "{{ states('input_number.samsung_ac_temperature') | float }}"
+  mode_template: "{{ states('input_select.samsung_ac_mode') }}"
+  set_temperature:
+    service: input_number.set_value
+    data:
+      entity_id: input_number.samsung_ac_temperature
+      value: "{{ temperature }}"
+  set_mode:
+    service: input_select.select_option
+    data:
+      entity_id: input_select.samsung_ac_mode
+      option: "{{ mode }}"
+  min_temp: 18
+  max_temp: 30
+  precision: 1.0

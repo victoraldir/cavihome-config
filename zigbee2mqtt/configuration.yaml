@@ -1,0 +1,65 @@
+version: 4
+mqtt:
+  base_topic: zigbee2mqtt
+  server: mqtt://core-mosquitto:1883
+  user: addons
+  password: Vailoa3lis8le6ohqu3eyoquiaphaeghaet9zauv5baes4ohquom3iathee2Phu8
+serial:
+  port: /dev/ttyUSB0
+  adapter: zstack
+  baudrate: 115200
+  rtscts: false
+advanced:
+  log_level: info
+  channel: 25
+  network_key:
+    - 194
+    - 85
+    - 246
+    - 228
+    - 33
+    - 57
+    - 175
+    - 117
+    - 214
+    - 229
+    - 47
+    - 232
+    - 111
+    - 120
+    - 109
+    - 123
+  pan_id: 20898
+  ext_pan_id:
+    - 102
+    - 103
+    - 75
+    - 195
+    - 36
+    - 36
+    - 160
+    - 162
+frontend:
+  enabled: true
+  port: 8099
+homeassistant:
+  enabled: true
+devices:
+  '0x08ddebfffeda01a6':
+    friendly_name: luz
+  '0xd44867fffe185e5a':
+    friendly_name: sala
+  '0xa4c138a2f51b4289':
+    friendly_name: USB router
+  '0xa4c138a6cdd038bd':
+    friendly_name: Sensor porta
+  '0xa4c138f0c0117cce':
+    friendly_name: Siren
+  '0xfc4d6afffe8d61c4':
+    friendly_name: IR remote
+  '0xa4c138e6605ccd08':
+    friendly_name: quarto principal
+  '0xa4c138b74284fde8':
+    friendly_name: cozinha
+availability:
+  enabled: true

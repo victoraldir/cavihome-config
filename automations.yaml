@@ -1,0 +1,71 @@
+- id: '1748434613719'
+  alias: Victor left home
+  description: ''
+  triggers:
+  - device_id: 03408c1b2e8b66cfcd57dce0660d1c2c
+    domain: device_tracker
+    entity_id: 1f59fdf2bd93b3eec41697c0b9b91d9c
+    type: leaves
+    trigger: device
+    zone: zone.home
+  conditions: []
+  actions:
+  - action: notify.alexa_media_echo_dot_de_victor
+    metadata: {}
+    data:
+      message: Victor saiu de casa
+  mode: single
+- id: '1749044650657'
+  alias: Camila watches serie
+  description: ''
+  triggers:
+  - device_id: 228ba177653fa8d3aff6d30340d2499e
+    domain: media_player
+    entity_id: 0596f3a2927b5e5cbc1350e9a9b9b1af
+    type: playing
+    trigger: device
+  - device_id: c0fdd800b7c749a0c60ca1ee01b72f5d
+    domain: media_player
+    entity_id: 57ef01e1e657cccf5a6b7ca92e4efa0c
+    type: playing
+    trigger: device
+  conditions: []
+  actions:
+  - action: notify.alexa_media_echo_dot_de_victor
+    metadata: {}
+    data:
+      message: Lá vai Camilinha assistir serie
+  mode: single
+- id: '1749643219075'
+  alias: 'Cool temperature '
+  description: ''
+  triggers:
+  - trigger: numeric_state
+    entity_id:
+    - sensor.sala_temperature
+    below: 24
+  conditions: []
+  actions:
+  - action: notify.alexa_media_echo_dot_de_victor
+    metadata: {}
+    data:
+      message: Temperatura ta gostosinha agora
+  mode: single
+- id: '1750457009784'
+  alias: 'Camila ia coming '
+  description: ''
+  triggers:
+  - device_id: 5fe3c84ec2afa43587bdda5e4096f3c5
+    domain: device_tracker
+    entity_id: 856e99c2580a8dc0f0c9499e61ef5df3
+    type: enters
+    trigger: device
+    zone: zone.home
+  conditions: []
+  actions:
+  - action: notify.mobile_app_pixel_7
+    metadata: {}
+    data:
+      message: 'Camila tá chegando '
+      title: Camila coming home
+  mode: single
