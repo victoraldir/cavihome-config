@@ -30,6 +30,7 @@ abodepy_cache.pickle
 camera_recording.py
 home-assistant.env
 home-assistant.*
+home-assistant_v2.*
 known_devices.yaml
 entity_registry.yaml
 secrets.yaml
