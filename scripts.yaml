@@ -6,7 +6,8 @@ ir_turn_on_off_tv:
         evaluate_payload: false
         qos: 0
         topic: zigbee2mqtt/IR remote/set
-        payload: '{"ir_code_to_send":"B6QRpBE1ApAG4AED4AsB4BcfQAHAI8ABwA/AB8AB4AcPQAEHT7ekEaQRNQLAG0AH4AsBQBfAA+APAeAHH8APwAfAAeAHD0AB4EeH4A8BQHtAAUAH4AgDAgY1Ag=="}'
+        payload: >-
+          {"ir_code_to_send":"{{ ir_codes.tv_samsung_43_power }}"}
   alias: IR turn on/off TV
   description: ""
 samsung_turn_on_ac:
