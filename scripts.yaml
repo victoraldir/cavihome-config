@@ -1,15 +1,32 @@
-ir_turn_on_off_tv:
+samsung_tv_turn_on_off:
   sequence:
-    - variables:
-        tv_samsung_43_power: "B6QRpBE1ApAG4AED4AsB4BcfQAHAI8ABwA/AB8AB4AcPQAEHT7ekEaQRNQLAG0AH4AsBQBfAA+APAeAHH8APwAfAAeAHD0AB4EeH4A8BQHtAAUAH4AgDAgY1Ag=="
     - action: mqtt.publish
-      metadata: {}
       data:
-        evaluate_payload: false
+        evaluate_payload: true
         qos: 0
         topic: zigbee2mqtt/IR remote/set
-        payload: '{"ir_code_to_send":"{{ tv_samsung_43_power }}"}'
-  alias: IR turn on/off TV
+        payload: '{"ir_code_to_send":"B6cRpxE2Ao0G4AED4AsB4BcfQAHAI8ABwA/AB8AB4AcPQAEHnbenEacRNgLAG0AH4AsBQBfAA+APAeAHH8APwAfAAeAHD0AB4EeH4A8BQHtAAUAH4AgDAgY2Ag=="}'
+  alias: Samsung TV turn on/off
+  description: ""
+samsung_tv_vol_up:
+  sequence:
+    - action: mqtt.publish
+      data:
+        evaluate_payload: true
+        qos: 0
+        topic: zigbee2mqtt/IR remote/set
+        payload: '{"ir_code_to_send":"B6YRphE1AowG4AED4AsB4Dcf4AMB4ANLwAsPtb5QAZQDUAFQAVABpQJQAQ=="}'
+  alias: Samsung TV vol up
+  description: ""
+samsung_tv_vol_down:
+  sequence:
+    - action: mqtt.publish
+      data:
+        evaluate_payload: true
+        qos: 0
+        topic: zigbee2mqtt/IR remote/set
+        payload: '{"ir_code_to_send":"B7ERsRE3AosG4AED4AsB4B8fQAFAK+APAcAbQAfgAwMPj75JAasDSQF/AUkBhAJJAQ=="}'
+  alias: Samsung TV vol down
   description: ""
 samsung_turn_on_ac:
   sequence:
@@ -20,7 +37,7 @@ samsung_turn_on_ac:
         qos: 0
         topic: zigbee2mqtt/IR remote/set
         payload: '{"ir_code_to_send":"EecBzkXDCwgj5wHnARoCxAUaAkAH4AEDwAGAE+ADH+AHCwPEBecB4AMD4AUBARoC4C0DQAHgDzvgDwGALwHEBUADA+cBxAVABwUaAsMLwwtA5wPEBecB4AEBARoC4AsDA8QFGgKAFwHnAcALQAfgAQNAF4AD4AEBARoCgAPgBwHAF+ALB0ABQBdAAeADB8ALwAFAD+ADA+APAQkaAsMLwwsIIxoCQJ/gBQEDGgLnAeAFAYAjQBeAAwHEBcADAecBQAFABwHEBcATwAdAE4ADgAEFGgLnAecBwBMBxAVAD+AVA0AjQAOAJ4ABA8QF5wHgEwEPxAUaAsQFGgLEBRoCxAXnAQ=="}'
-  alias: Samsung turn on AC
+  alias: Samsung Aircon turn on AC
   description: ""
 samsung_turn_off_ac:
   sequence:
@@ -31,16 +48,55 @@ samsung_turn_off_ac:
         qos: 0
         topic: zigbee2mqtt/IR remote/set
         payload: '{"ir_code_to_send":"ERgCykXDCw8jGALpAekBxQXpAeAFAUAX4AEDA8UFGAKADwPpAcUFQANADwHpAUAH4AUDAekB4AkBAxgC6QHgCwFAF+ATA0ABQB9AAUAHQAPAAUAL4AsD4AEBQIsHxQUYAsMLwwtA5wPFBekB4AUBARgCgAPgAQHgASMFGALFBRgCwAdACwPFBekBgANACwMYAukB4AsD4CcB4AtD4BMTwAFAI0ABQAeAAwPDC8MLgOcBGALAE+AJB4ABBcUF6QHpAUAfQAFAB0ADgAFAG4ADARgC4AEDwBNABwMYAukB4AEDQA+AAwHpAeAXAUAjBcUFGALpAeABA+AHD+ADGwHpAeABAQfFBekBxQUYAg=="}'
-  alias: Samsung turn off AC
+  alias: Samsung Aircon turn off AC
   description: ""
 samsung_cool:
   sequence:
     - action: mqtt.publish
-      metadata: {}
       data:
         evaluate_payload: false
         qos: 0
         topic: zigbee2mqtt/IR remote/set
         payload: '{"ir_code_to_send":"ERsCFEbMCxEj6QHpARsCwAUbAkAHgAPgCQHgAx/gAQsB6QFAC+AHAwHpAeAHA+AnAeAHP+APD+ADAeABI+ABjwHpAUADBcwLzAsRI4AXAekBwAPAAcAPgAdAL8ABwAsBwAVAFwUbAukBGwJABwXABekBwAVAB+AJAwHpAUADgAEBwAXgAQPgBQFAIwUbAsAFGwJAB0ADQAsJwAXpAekBGwLpAUABARsCgA/AAQEbAuAFAwHpAUAfC8AF6QHABekBwAUbAg=="}'
   alias: Samsung set cool
+  description: ""
+portable_airconditioner_power_on:
+  sequence:
+    - action: mqtt.publish
+      data:
+        evaluate_payload: false
+        qos: 0
+        topic: zigbee2mqtt/IR remote/set
+        payload: '{"ir_code_to_send":"CdoR2hElAjIGJQJAAcAH4AMBQBNAA4ABAVcCQAsEMgZXAiXgBgEDMgYlAsAB4AMLQAFAD+AJAwBX4AoT4AsnASUCQAHAB0ABwAvABwHaEUABAlcCJSABgBMBVwJAB+ADA8ABwBPAAcAPwAcBJQLAOwJXAiUgAQEyBuABA+A3AUBLQAFAB0ADQAELMgYlAiUCJQIyBiUC"}'
+  alias: Portable aircon turn on
+  description: ""
+portable_airconditioner_power_off:
+  sequence:
+    - action: mqtt.publish
+      data:
+        evaluate_payload: false
+        qos: 0
+        topic: zigbee2mqtt/IR remote/set
+        payload: '{"ir_code_to_send":"CdkR2REiAjgGIgJAAcAH4AMBBDgGVwIi4AIBATgGgAMBIgLgCRfAAUAj4AMBQA/gOwPAAUBLQAHABwHZEUABASICQAEBOAaAlwE4BuAFA0ABAjgGVyADQAcBIgLAAUAL4AMDQAHAD0ABwAtAB+AhAQJXAiLgBAHgBQ9AS0ADDyICVwI4BiICIgIiAjgGIgI="}'
+  alias: Portable aircon turn off
+  description: ""
+portable_airconditioner_cool:
+  sequence:
+    - action: mqtt.publish
+      data:
+        evaluate_payload: false
+        qos: 0
+        topic: zigbee2mqtt/IR remote/set
+        payload: '{"ir_code_to_send":"DdgR2BEkAjIGJAIkAlgCgAdAAQJYAiSgAQIyBlggAwEkAoABgAsEMgZYAiTgBgEDMgYkAsAB4AELgCdAD+AzA0ABQD8BJALgAU9AAYATAyQC2BFAAQEkAkABwBNAB+ADA8ABwBPAAcAPwAdAAeALC0AT4DcBwENAB0ADQAELMgYkAiQCJAIyBiQC"}'
+  alias: Portable aircon cool
+  description: ""
+portable_airconditioner_fan:
+  sequence:
+    - action: mqtt.publish
+      data:
+        evaluate_payload: false
+        qos: 0
+        topic: zigbee2mqtt/IR remote/set
+        payload: '{"ir_code_to_send":"CdwR3BEiAjcGIgJAAcAHgAECVwIiIAFAE0ADwAFAC8AD4AMBQBNAAUAH4AMDQAHgAw/gKwtAAUA3QAHAB0ABQAtAAwHcEUABASICQAFAD0ABQAfgAwPAAcATASICgN9AAQI3BlcgA4AHACIgAUALASICgAvAAYATwAHgBRsBIgLgBw/gDQHAQ+ADBws3BiICIgJXAiICIgI="}'
+  alias: Portable aircon turn fan
   description: ""
