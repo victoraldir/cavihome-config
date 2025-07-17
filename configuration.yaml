@@ -12,3 +12,42 @@ homeassistant:
 automation: !include automations.yaml
 script: !include scripts.yaml
 scene: !include scenes.yaml
+
+input_select:
+  ir_device:
+    name: "IR Device"
+    options:
+      - samsung_tv
+      - samsung_ac
+      - portable_ac
+    initial: samsung_tv
+  
+  ir_command:
+    name: "IR Command"
+    options:
+      - power
+      - volume_up
+      - volume_down
+      - cool
+      - fan
+    initial: power
+
+template:
+  - trigger:
+      - platform: state
+        entity_id: input_select.ir_device
+    sensor:
+      - name: "Available IR Commands"
+        state: "{{ trigger.to_state.state }}"
+        attributes:
+          commands: >-
+            {% set device = trigger.to_state.state %}
+            {% if device == 'samsung_tv' %}
+              ['power', 'volume_up', 'volume_down']
+            {% elif device == 'samsung_ac' %}
+              ['power_on', 'power_off', 'cool']
+            {% elif device == 'portable_ac' %}
+              ['power_on', 'power_off', 'cool', 'fan']
+            {% else %}
+              []
+            {% endif %}
