@@ -100,3 +100,52 @@ portable_airconditioner_fan:
         payload: '{"ir_code_to_send":"CdwR3BEiAjcGIgJAAcAHgAECVwIiIAFAE0ADwAFAC8AD4AMBQBNAAUAH4AMDQAHgAw/gKwtAAUA3QAHAB0ABQAtAAwHcEUABASICQAFAD0ABQAfgAwPAAcATASICgN9AAQI3BlcgA4AHACIgAUALASICgAvAAYATwAHgBRsBIgLgBw/gDQHAQ+ADBws3BiICIgJXAiICIgI="}'
   alias: Portable aircon turn fan
   description: ""
+
+# Generic IR Service
+send_ir_code:
+  sequence:
+    - action: mqtt.publish
+      data:
+        evaluate_payload: "{{ evaluate_payload | default(false) }}"
+        qos: "{{ qos | default(0) }}"
+        topic: "{{ topic | default('zigbee2mqtt/IR remote/set') }}"
+        payload: '{"ir_code_to_send":"{{ ir_code }}"}'
+  fields:
+    ir_code:
+      description: "IR code to send"
+      required: true
+      example: "B6cRpxE2Ao0G..."
+    topic:
+      description: "MQTT topic"
+      default: "zigbee2mqtt/IR remote/set"
+    qos:
+      description: "MQTT QoS level"
+      default: 0
+    evaluate_payload:
+      description: "Whether to evaluate payload"
+      default: false
+
+# Device-specific scripts using the generic service
+samsung_tv_power:
+  sequence:
+    - action: script.send_ir_code
+      data:
+        ir_code: "{{ state_attr('script.send_ir_code', 'ir_codes').samsung_tv.power }}"
+        evaluate_payload: true
+  alias: "Samsung TV Power Toggle"
+
+samsung_tv_volume_up:
+  sequence:
+    - action: script.send_ir_code
+      data:
+        ir_code: "{{ state_attr('script.send_ir_code', 'ir_codes').samsung_tv.volume_up }}"
+        evaluate_payload: true
+  alias: "Samsung TV Volume Up"
+
+samsung_tv_volume_down:
+  sequence:
+    - action: script.send_ir_code
+      data:
+        ir_code: "{{ state_attr('script.send_ir_code', 'ir_codes').samsung_tv.volume_down }}"
+        evaluate_payload: true
+  alias: "Samsung TV Volume Down"
