@@ -39,6 +39,9 @@ advanced:
     - 36
     - 160
     - 162
+  cache_state: false
+  cache_state_persistent: true
+  cache_state_send_on_startup: true
 frontend:
   enabled: true
   port: 8099
@@ -61,5 +64,8 @@ devices:
     friendly_name: quarto principal
   "0xa4c138b74284fde8":
     friendly_name: cozinha
+  "0x588c81fffe30f4fc":
+    friendly_name: zbReservoir
 availability:
   enabled: true
+blocklist: []

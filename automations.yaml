@@ -69,3 +69,42 @@
       message: 'Camila tá chegando '
       title: Camila coming home
   mode: single
+- id: '1753214516788'
+  alias: ReservoirAirconFull
+  description: ''
+  triggers:
+  - type: temperature
+    device_id: 9dbe00fb442d45eacae176f36974affd
+    entity_id: 11df7ce03f82097c30e2517a247746cb
+    domain: sensor
+    trigger: device
+    below: 4
+  conditions: []
+  actions:
+  - action: script.portable_airconditioner_fan
+    metadata: {}
+    data: {}
+  mode: single
+- id: '1753214688388'
+  alias: ReservoirAirconFullWarn
+  description: ''
+  triggers:
+  - type: temperature
+    device_id: 9dbe00fb442d45eacae176f36974affd
+    entity_id: 11df7ce03f82097c30e2517a247746cb
+    domain: sensor
+    trigger: device
+    below: 8
+  conditions: []
+  actions:
+  - action: notify.mobile_app_dn2103
+    metadata: {}
+    data:
+      title: Reservatório de agua quase cheio. Atenção
+      message: Faltam 8 cm para alcançar a tampa
+  - action: notify.mobile_app_pixel_7
+    metadata: {}
+    data:
+      message: Faltam 8 cm para alcançar a tampa
+      title: Reservatório de agua quase cheio. Atenção
+  mode: single
